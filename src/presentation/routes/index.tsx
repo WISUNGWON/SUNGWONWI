@@ -8,7 +8,7 @@ export const RootRoutes: React.FC = () => {
   return (
     <MainLayout>
       <Switch>
-        <Route path="/" exact>
+        <Route path="/">
           <MainPage />
         </Route>
       </Switch>

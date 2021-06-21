@@ -145,7 +145,7 @@ export const MainPage: React.FC = () => {
           북커버리
         </Typography>
         <Typography size={20} bold color="blue50">
-          2020.03 ~ present
+          2021.03 ~ present
         </Typography>
         <Margin row size={100} />
       </Row>
@@ -250,7 +250,7 @@ export const MainPage: React.FC = () => {
           멋쟁이 사자처럼 8기
         </Typography>
         <Typography size={20} bold color="blue50">
-          2020.03 ~ 2021.08
+          2020.03 ~ 2020.08
         </Typography>
         <Margin row size={100} />
       </Row>

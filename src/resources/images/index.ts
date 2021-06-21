@@ -1,0 +1,10 @@
+export { default as myProfile } from './my_profile.jpg';
+export { default as profile } from './profile.jpg';
+export { default as likelion } from './likelion.png';
+export { default as ssafy } from './ssafy.jpg';
+export { default as bookcovery } from './bookcovery.png';
+export { default as bookcoveryKeyword } from './bookcovery-keyword.png';
+export { default as bookcoveryKeywordModal } from './bookcovery-keyword-modal.png';
+export { default as happyhouseMain } from './happyhouse_main.png';
+export { default as happyhouseMap } from './happyhouse_map.jpg';
+export { default as happyhouseLike } from './happyhouse_like.png';

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/SUNGWONWI/static/js/main.401894c8.chunk.js",
-    "main.js.map": "/SUNGWONWI/static/js/main.401894c8.chunk.js.map",
+    "main.js": "/SUNGWONWI/static/js/main.eba75fb6.chunk.js",
+    "main.js.map": "/SUNGWONWI/static/js/main.eba75fb6.chunk.js.map",
     "runtime-main.js": "/SUNGWONWI/static/js/runtime-main.a869ab4d.js",
     "runtime-main.js.map": "/SUNGWONWI/static/js/runtime-main.a869ab4d.js.map",
     "static/js/2.a7fe8bab.chunk.js": "/SUNGWONWI/static/js/2.a7fe8bab.chunk.js",
@@ -33,6 +33,6 @@
   "entrypoints": [
     "static/js/runtime-main.a869ab4d.js",
     "static/js/2.a7fe8bab.chunk.js",
-    "static/js/main.401894c8.chunk.js"
+    "static/js/main.eba75fb6.chunk.js"
   ]
 }

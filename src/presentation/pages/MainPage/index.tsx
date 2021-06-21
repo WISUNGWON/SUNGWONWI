@@ -64,7 +64,6 @@ const BookcoveryLinkTypo = styled(Typography)`
 `;
 export const MainPage: React.FC = () => {
   const [position, setPosition] = useRecoilState<number>(positionState);
-  console.log(position);
 
   const onScroll = () => {
     setPosition(window.scrollY);

@@ -145,7 +145,7 @@ export const MainPage: React.FC = () => {
           북커버리
         </Typography>
         <Typography size={20} bold color="blue50">
-          2020.12 ~ present
+          2020.03 ~ present
         </Typography>
         <Margin row size={100} />
       </Row>

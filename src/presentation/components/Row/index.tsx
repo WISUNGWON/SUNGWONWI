@@ -6,6 +6,7 @@ interface IRow {
   reverse?: boolean;
   flex?: number | string;
   text?: string;
+  wrap?: boolean;
 }
 
 const defaultProps = {
@@ -14,6 +15,7 @@ const defaultProps = {
   reverse: false,
   flex: 'none',
   text: 'unset',
+  wrap: false,
 };
 
 export const Row = styled.div<IRow>`
@@ -23,7 +25,7 @@ export const Row = styled.div<IRow>`
   text-align: ${(props): string | undefined => props.text};
   justify-content: ${(props): string | undefined => props.justify};
   flex: ${(props): number | string => (props.flex ? props.flex : 'none')};
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
 `;
 
 Row.defaultProps = defaultProps;

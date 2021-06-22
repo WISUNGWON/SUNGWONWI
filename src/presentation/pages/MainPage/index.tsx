@@ -37,13 +37,17 @@ const TopButton = styled.div`
 `;
 
 const Container = styled.div`
+  width: 100vw;
   margin-left: 238px;
-  width: 100%;
   padding: 200px 0px 100px 0px;
   background-color: ${(props): string => props.theme.colors.gray85};
 
   & > :not(${Divider}, ${TopButton}) {
     padding-left: 40px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    margin-left: 0px;
   }
 `;
 
@@ -60,6 +64,12 @@ const LogIcon = styled.img<{ size: number }>`
 const BookcoveryLinkTypo = styled(Typography)`
   :hover {
     text-decoration: underline;
+  }
+`;
+
+const Photos = styled(Row)`
+  * {
+    margin-bottom: 20px;
   }
 `;
 export const MainPage: React.FC = () => {
@@ -139,7 +149,7 @@ export const MainPage: React.FC = () => {
       </Typography>
       {/* 북커버리 */}
       <Margin size={70} />
-      <Row justify="space-between">
+      <Row justify="space-between" align="center">
         <Typography size={30} bold color="white">
           북커버리
         </Typography>
@@ -182,7 +192,7 @@ export const MainPage: React.FC = () => {
       </Typography>
       <Margin size={30} />
       {/* Todo: 클릭하면 모달 창나오고 크게 보기, 이미지가 여러개면 1/2 이런식으로 나올 수 있게 그리고 오른쪽 버튼 있게하기 */}
-      <Row>
+      <Photos>
         <Photo width={360} height={200} src={bookcovery} alt="bookcovery" />
         <Margin row size={30} />
         <Photo
@@ -198,10 +208,10 @@ export const MainPage: React.FC = () => {
           src={bookcoveryKeywordModal}
           alt="bookcoveryKeywordModal"
         />
-      </Row>
+      </Photos>
       {/* SSAFY */}
       <Margin size={100} />
-      <Row justify="space-between">
+      <Row justify="space-between" align="center">
         <Typography size={30} bold color="white">
           삼성 청년 소프트웨어 아카데미 4기 (SSAFY)
         </Typography>
@@ -244,7 +254,7 @@ export const MainPage: React.FC = () => {
       <Photo width={300} height={300} src={ssafy} alt="ssafy" />
       {/* 멋쟁이 사자처럼 */}
       <Margin size={100} />
-      <Row justify="space-between">
+      <Row justify="space-between" align="center">
         <Typography size={30} bold color="white">
           멋쟁이 사자처럼 8기
         </Typography>
@@ -298,7 +308,7 @@ export const MainPage: React.FC = () => {
         PROJECT
       </Typography>
       <Margin size={60} />
-      <Row justify="space-between">
+      <Row justify="space-between" align="center">
         <Typography size={30} bold color="white">
           HappyHouse
         </Typography>

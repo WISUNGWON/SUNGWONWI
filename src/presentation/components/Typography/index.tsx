@@ -22,7 +22,6 @@ interface ITypography {
   underline?: boolean;
   align?: string;
   nowrap?: boolean;
-  breakAll?: boolean;
   onClick?: () => void;
 }
 
@@ -37,7 +36,6 @@ const defaultProps = {
   underline: false,
   align: 'left',
   nowrap: false,
-  breakAll: false,
 };
 
 export const Typography = styled.div<ITypography>`
@@ -51,8 +49,7 @@ export const Typography = styled.div<ITypography>`
   white-space: ${(props): string => (props.nowrap ? 'nowrap' : 'pre-wrap')};
   overflow: hidden;
   text-overflow: ellipsis;
-  word-break: ${(props): string | undefined =>
-    props.breakAll ? 'break-all' : undefined};
+  word-break: 'break-all';
 
   ${(props): string | undefined =>
     props.center ? 'text-align: center;' : undefined}

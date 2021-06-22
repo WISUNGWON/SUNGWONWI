@@ -5,4 +5,5 @@ export * from './Sidebar';
 export * from './Margin';
 export * from './Typography';
 export * from './Span';
+export * from './NavBar';
 export * from './Photo';

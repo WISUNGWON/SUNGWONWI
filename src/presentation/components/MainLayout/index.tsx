@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Sidebar, Row, Margin } from 'presentation/components';
+import { Sidebar, Row, Margin, NavBar } from 'presentation/components';
 import { useCheckMobileScreen } from 'presentation/hooks/useCheckMobileScreen';
 
 const Container = styled(Row)`
@@ -17,11 +17,7 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
   const isMobile = useCheckMobileScreen();
   return (
     <Container>
-      {!isMobile && (
-        <>
-          <Sidebar />
-        </>
-      )}
+      {!isMobile ? <Sidebar /> : <NavBar />}
       {children}
     </Container>
   );

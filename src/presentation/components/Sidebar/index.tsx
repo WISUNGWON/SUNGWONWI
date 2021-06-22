@@ -54,7 +54,7 @@ export const Sidebar: React.FC<{ className?: string }> = ({ className }) => {
       <Typography
         size={16}
         color={
-          window.scrollY >= 2850 && window.scrollY < 4465 ? 'blue50' : 'white'
+          window.scrollY >= 2850 && window.scrollY < 4000 ? 'blue50' : 'white'
         }
         onClick={() => window.scrollTo(0, 3597)}
       >
@@ -63,8 +63,8 @@ export const Sidebar: React.FC<{ className?: string }> = ({ className }) => {
       <Margin size={20} />
       <Typography
         size={16}
-        color={window.scrollY >= 4465 ? 'blue50' : 'white'}
-        onClick={() => window.scrollTo(0, 4465)}
+        color={window.scrollY >= 4000 ? 'blue50' : 'white'}
+        onClick={() => window.scrollTo(0, 4471)}
       >
         SKILLS
       </Typography>

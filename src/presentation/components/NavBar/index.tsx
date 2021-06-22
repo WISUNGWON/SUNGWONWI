@@ -16,6 +16,7 @@ const Navbar = styled.nav`
   width: fill-available;
   height: 50px;
   background: #2d2d2d;
+  z-index: 25;
 `;
 
 const ToggleWrapper = styled.div`

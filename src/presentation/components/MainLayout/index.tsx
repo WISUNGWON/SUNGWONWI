@@ -7,7 +7,7 @@ import { useCheckMobileScreen } from 'presentation/hooks/useCheckMobileScreen';
 const Container = styled(Row)`
   position: relative;
   background: white;
-  width: 100vw;
+  width: -webkit-fill-available;
   min-height: 100vh;
 `;
 

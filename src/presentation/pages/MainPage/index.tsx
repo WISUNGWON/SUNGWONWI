@@ -44,6 +44,9 @@ const Container = styled.div`
 
   & > :not(${Divider}, ${TopButton}) {
     padding-left: 40px;
+    @media only screen and (max-width: 768px) {
+      padding: 0px 10px;
+    }
   }
 
   @media only screen and (max-width: 768px) {
@@ -74,7 +77,6 @@ const Photos = styled(Row)`
 `;
 export const MainPage: React.FC = () => {
   const [position, setPosition] = useRecoilState<number>(positionState);
-
   const onScroll = () => {
     setPosition(window.scrollY);
   };
@@ -91,10 +93,10 @@ export const MainPage: React.FC = () => {
       <TopButton onClick={() => window.scrollTo(0, 0)}>
         <img src={arrowUp} alt="arrowUp" />
       </TopButton>
+      <Span size={70} bold color="white">
+        WI
+      </Span>{' '}
       <Typography size={70} bold color="blue50">
-        <Span size={70} bold color="white">
-          WI
-        </Span>{' '}
         SUGN WON
       </Typography>
       <Margin size={48} />
@@ -344,7 +346,7 @@ export const MainPage: React.FC = () => {
         * 이미지를 클릭하시면, 크게 보실 수 있습니다.
       </Typography>
       <Margin size={30} />
-      <Row>
+      <Photos>
         <Photo
           width={360}
           height={200}
@@ -365,7 +367,7 @@ export const MainPage: React.FC = () => {
           src={happyhouseMap}
           alt="happyhouseMap"
         />
-      </Row>
+      </Photos>
       {/* End of PROJECT 섹션 */}
       <Margin size={100} />
       {/* 하나의 섹션 */}

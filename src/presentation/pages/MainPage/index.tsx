@@ -93,10 +93,11 @@ export const MainPage: React.FC = () => {
       <TopButton onClick={() => window.scrollTo(0, 0)}>
         <img src={arrowUp} alt="arrowUp" />
       </TopButton>
-      <Span size={70} bold color="white">
-        WI
-      </Span>{' '}
+
       <Typography size={70} bold color="blue50">
+        <Span size={70} bold color="white">
+          WI
+        </Span>{' '}
         SUGN WON
       </Typography>
       <Margin size={48} />
@@ -174,7 +175,7 @@ export const MainPage: React.FC = () => {
         주요 업무 내용
       </Typography>
       <Typography size={20} regular color="white">
-        - ReactJS, Typescript, 클린 아키텍쳐 기반의 웹 어플리케이 션 제작 <br />
+        - ReactJS, Typescript 웹 어플리케이션 제작 <br />
         - 도움됐어요, 읽고싶어요, 해시태그 기능 구현 <br />
         - 기술스택: ReactJS, Typescript, Storybook, SWR, Recoil,
         Styled-component, Git-flow
@@ -188,7 +189,7 @@ export const MainPage: React.FC = () => {
       >
         - bookcovery.com (관련페이지)
       </BookcoveryLinkTypo>
-      <Margin size={20} />
+      <Margin size={30} />
       <Typography size={16} regular color="blue50">
         * 이미지를 클릭하시면, 크게 보실 수 있습니다.
       </Typography>

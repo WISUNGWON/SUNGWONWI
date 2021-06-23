@@ -49,7 +49,8 @@ export const Typography = styled.div<ITypography>`
   white-space: ${(props): string => (props.nowrap ? 'nowrap' : 'pre-wrap')};
   overflow: hidden;
   text-overflow: ellipsis;
-  word-break: 'break-all';
+  word-break: keep-all;
+  word-wrap: break-word;
 
   ${(props): string | undefined =>
     props.center ? 'text-align: center;' : undefined}

@@ -13,7 +13,7 @@ import {
   happyhouseMap,
   happyhouseMain,
 } from 'resources/images';
-import { github, arrowUp, home } from 'resources/icons';
+import { github, arrowUp, home, bookcoveryLogo } from 'resources/icons';
 import { positionState } from 'presentation/recoil';
 
 const Divider = styled.div`
@@ -36,13 +36,23 @@ const TopButton = styled.div`
   }
 `;
 
+const BookIcon = styled.img`
+  border-radius: 100px;
+  margin-left: 40px;
+  padding: 2px;
+  background-color: ${(props): string => props.theme.colors.white};
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 const Container = styled.div`
   width: 100vw;
   margin-left: 238px;
   padding: 200px 0px 100px 0px;
   background-color: ${(props): string => props.theme.colors.gray85};
 
-  & > :not(${Divider}, ${TopButton}) {
+  & > :not(${Divider}, ${TopButton}, ${BookIcon}) {
     padding-left: 40px;
     @media only screen and (max-width: 768px) {
       padding: 0px 10px;
@@ -165,30 +175,28 @@ export const MainPage: React.FC = () => {
         웹 서비스 프론트엔드 개발 (React ,Typescript)
       </Typography>
       <Margin size={30} />
-      <Typography size={20} medium color="white">
+      <Typography size={16} medium color="white">
         도서 기반 SNS 서비스 스타트업 BookCovery의 프론트엔드팀에서 개발업무를
         수행하고 있습니다.
         <br />
       </Typography>
-      <Margin size={30} />
-      <Typography size={20} regular color="blue30">
+      <Margin size={15} />
+      <BookIcon
+        src={bookcoveryLogo}
+        alt="bookcoveryLogo"
+        onClick={() => window.open('https://bookcovery.com/')}
+      />
+      <Margin size={15} />
+      <Typography size={16} regular color="blue30">
         주요 업무 내용
       </Typography>
-      <Typography size={20} regular color="white">
+      <Typography size={16} regular color="white">
         - ReactJS, Typescript 웹 어플리케이션 제작 <br />
         - 도움됐어요, 읽고싶어요, 해시태그 기능 구현 <br />
         - 기술스택: ReactJS, Typescript, Storybook, SWR, Recoil,
         Styled-component, Git-flow
         <br />
       </Typography>
-      <BookcoveryLinkTypo
-        size={20}
-        regular
-        color="white"
-        onClick={() => window.open('https://bookcovery.com/')}
-      >
-        - bookcovery.com (관련페이지)
-      </BookcoveryLinkTypo>
       <Margin size={30} />
       <Typography size={16} regular color="blue50">
         * 이미지를 클릭하시면, 크게 보실 수 있습니다.
@@ -227,7 +235,7 @@ export const MainPage: React.FC = () => {
         교육 이수 (웹 개발, 알고리즘)
       </Typography>
       <Margin size={30} />
-      <Typography size={20} medium color="white">
+      <Typography size={16} medium color="white">
         삼성과 고용노동부에서 주관하는 소프트웨어 교육기관에서 <br />
         Java 웹 풀스택 및 알고리즘 교육과정을 수강했습니다. <br />
         백엔드와 프론트엔드 개발을 강의와 프로젝트를 통해 웹 개발의 전반적인
@@ -237,11 +245,10 @@ export const MainPage: React.FC = () => {
         수 있었습니다.
       </Typography>
       <Margin size={30} />
-      <Typography size={20} regular color="blue30">
+      <Typography size={16} regular color="blue30">
         주요 교육 내용
       </Typography>
-      <Typography size={20} regular color="white">
-        <br />
+      <Typography size={16} regular color="white">
         - JSP, Servlet, Spring 백엔드 강의 수강
         <br />
         - Javascript, CSS/HTML, VueJS 강의 수강 <br />
@@ -270,7 +277,7 @@ export const MainPage: React.FC = () => {
         교육 이수 (웹 개발)
       </Typography>
       <Margin size={30} />
-      <Typography size={20} medium color="white">
+      <Typography size={16} medium color="white">
         대학생 코딩 대외활동인 멋쟁이 사자처럼 한양대 지부에서 8기로
         참여했습니다. <br />
         개발을 시작한지 얼마되지 않았지만 열정은 넘쳤을 때, 실력있는 동문들을
@@ -281,11 +288,10 @@ export const MainPage: React.FC = () => {
         <br />
       </Typography>
       <Margin size={30} />
-      <Typography size={20} regular color="blue30">
+      <Typography size={16} regular color="blue30">
         주요 교육 내용
       </Typography>
-      <Typography size={20} regular color="white">
-        <br />
+      <Typography size={16} regular color="white">
         - React, Django 강의 수강
         <br />
         - 아이디어 해커톤 및 웹 프로젝트 진행
@@ -324,7 +330,7 @@ export const MainPage: React.FC = () => {
         공공데이터를 사용하여 부동산 매물 정보를 검색할 수 있는 웹사이트
       </Typography>
       <Margin size={30} />
-      <Typography size={20} medium color="white">
+      <Typography size={16} medium color="white">
         삼성 청년 소프트웨어 아카데미 1학기 관통 프로젝트로 제작한 웹 사이트
         입니다. <br />
         프로젝트를 통해 Spring개념을 복습하고 DB에 대한 지식을 넓힐 수
@@ -332,11 +338,10 @@ export const MainPage: React.FC = () => {
         <br />
       </Typography>
       <Margin size={30} />
-      <Typography size={20} regular color="blue30">
-        주요 교육 내용
+      <Typography size={16} regular color="blue30">
+        프로젝트 역할
       </Typography>
-      <Typography size={20} regular color="white">
-        <br />
+      <Typography size={16} regular color="white">
         - Java, Spring을 이용한 백엔드 개발
         <br />
         - 게시판, 페이징, 검색, 크롤링, 차트, 좋아요 기능 구현

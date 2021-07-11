@@ -1,8 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
-
-import { Typography, Margin, Row, Photo, Span } from 'presentation/components';
+import { useTranslation } from 'react-i18next';
+import {
+  Typography,
+  Margin,
+  Row,
+  Photo,
+  Span,
+  Column,
+} from 'presentation/components';
 import {
   likelion,
   ssafy,
@@ -15,6 +22,7 @@ import {
 } from 'resources/images';
 import { github, arrowUp, home, bookcoveryLogo } from 'resources/icons';
 import { positionState } from 'presentation/recoil';
+import { Languages, languages } from '../../../Locales/i18n';
 
 const Divider = styled.div`
   height: 2px;
@@ -85,11 +93,52 @@ const Photos = styled(Row)`
     margin-bottom: 20px;
   }
 `;
+
+const LanguageBtn = styled.button<{ point?: boolean }>`
+  z-index: inherit;
+  position: relative;
+  outline: 0;
+  border: 0;
+  white-space: nowrap;
+  padding: 0 16px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 1.6;
+  border: 1px solid ${(props) => props.theme.colors.white};
+  background-color: inherit;
+  color: ${(props) => props.theme.colors.white};
+
+  ${(props) =>
+    props.point
+      ? `
+        background-color: white;
+        border: 1px solid ${props.theme.colors.gray20};
+        color: ${props.theme.colors.gray70};
+      `
+      : undefined};
+`;
+
 export const MainPage: React.FC = () => {
   const [position, setPosition] = useRecoilState<number>(positionState);
   const onScroll = () => {
     setPosition(window.scrollY);
   };
+
+  const { t, i18n } = useTranslation();
+  const handleChangeLanguage = (lang: Languages) => {
+    i18n.changeLanguage(lang);
+  };
+
+  const currentLanguage = useMemo(
+    () => i18n.language || window.localStorage.i18nextLng || '',
+    [i18n.language],
+  );
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
@@ -103,13 +152,28 @@ export const MainPage: React.FC = () => {
       <TopButton onClick={() => window.scrollTo(0, 0)}>
         <img src={arrowUp} alt="arrowUp" />
       </TopButton>
-
-      <Typography size={70} bold color="blue50">
-        <Span size={70} bold color="white">
-          WI
-        </Span>{' '}
-        SUGN WON
-      </Typography>
+      <Column>
+        <Typography size={70} bold color="blue50">
+          <Span size={70} bold color="white">
+            WI
+          </Span>{' '}
+          SUGN WON
+        </Typography>
+        <Row>
+          {languages.map((lang) => (
+            <React.Fragment key={lang}>
+              <LanguageBtn
+                type="button"
+                onClick={() => handleChangeLanguage(lang)}
+                point={lang === currentLanguage}
+              >
+                {t(`language_${lang}`)}
+              </LanguageBtn>
+              <Margin row size={8} />
+            </React.Fragment>
+          ))}
+        </Row>
+      </Column>
       <Margin size={48} />
       <Typography size={20} medium color="blue30">
         <span role="img" aria-label="img">
@@ -125,11 +189,11 @@ export const MainPage: React.FC = () => {
       </Typography>
       <Margin size={30} />
       <Typography size={20} medium color="white">
-        Hello! I am a FRONT-END developer.
+        {t('hello')}
       </Typography>
       <Margin size={30} />
       <Typography size={20} medium color="white">
-        저에 대해서 알고 싶으시다면 스크롤을 아래로 내려주세요
+        {t('knowMe')}
         <span role="img" aria-label="img">
           😀
         </span>

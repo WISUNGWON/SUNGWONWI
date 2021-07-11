@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { RecoilRoot } from 'recoil';
-
+import './Locales/i18n';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

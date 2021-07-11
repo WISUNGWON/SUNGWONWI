@@ -15,7 +15,7 @@ const resources = {
   jp: { translation: tranJp },
 };
 
-const userLanguage = window.navigator.language;
+// const userLanguage = window.navigator.language; // for userDefault Language
 
 i18n.use(initReactI18next).init({
   resources,

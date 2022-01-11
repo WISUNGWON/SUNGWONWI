@@ -8,3 +8,4 @@ export { default as bookcoveryKeywordModal } from './bookcovery-keyword-modal.pn
 export { default as happyhouseMain } from './happyhouse_main.png';
 export { default as happyhouseMap } from './happyhouse_map.jpg';
 export { default as happyhouseLike } from './happyhouse_like.png';
+export { default as Logo30cos } from './logo-30cos.png';

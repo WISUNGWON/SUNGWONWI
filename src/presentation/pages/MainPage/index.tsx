@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
-import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
 import { useTranslation } from 'react-i18next';
+
 import {
   Typography,
   Margin,
@@ -16,113 +16,12 @@ import {
   bookcovery,
   bookcoveryKeyword,
   bookcoveryKeywordModal,
-  happyhouseLike,
-  happyhouseMap,
-  happyhouseMain,
+  Logo30cos,
 } from 'resources/images';
 import { github, arrowUp, home, bookcoveryLogo } from 'resources/icons';
 import { positionState } from 'presentation/recoil';
+import * as S from './styles/index';
 import { Languages, languages } from '../../../Locales/i18n';
-
-const Divider = styled.div`
-  height: 2px;
-  width: 100%;
-  background-color: ${(props): string => props.theme.colors.gray40};
-`;
-
-const TopButton = styled.div`
-  padding: 15px;
-  position: fixed;
-  bottom: 50px;
-  right: 50px;
-  border-radius: 100px;
-  background: #2d2d2d;
-
-  :hover {
-    background-color: ${(props): string => props.theme.colors.blue50};
-    cursor: pointer;
-  }
-`;
-
-const BookIcon = styled.img`
-  border-radius: 100px;
-  margin-left: 40px;
-  padding: 2px;
-  background-color: ${(props): string => props.theme.colors.white};
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const Container = styled.div`
-  width: 100vw;
-  margin-left: 238px;
-  padding: 200px 0px 100px 0px;
-  background-color: ${(props): string => props.theme.colors.gray85};
-
-  & > :not(${Divider}, ${TopButton}, ${BookIcon}) {
-    padding-left: 40px;
-    @media only screen and (max-width: 768px) {
-      padding: 0px 10px;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    margin-left: 0px;
-  }
-`;
-
-const LogIcon = styled.img<{ size: number }>`
-  width: ${(props) => props.size}px;
-  border-radius: 100px;
-  background-color: ${(props): string => props.theme.colors.white};
-  padding: 5px;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const BookcoveryLinkTypo = styled(Typography)`
-  :hover {
-    text-decoration: underline;
-  }
-`;
-
-const Photos = styled(Row)`
-  * {
-    margin-bottom: 20px;
-  }
-`;
-
-const LanguageBtn = styled.button<{ point?: boolean }>`
-  z-index: inherit;
-  position: relative;
-  outline: 0;
-  border: 0;
-  white-space: nowrap;
-  padding: 0 16px;
-  height: 36px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  line-height: 1.6;
-  border: 1px solid ${(props) => props.theme.colors.white};
-  background-color: inherit;
-  color: ${(props) => props.theme.colors.white};
-
-  ${(props) =>
-    props.point
-      ? `
-        background-color: white;
-        border: 1px solid ${props.theme.colors.gray20};
-        color: ${props.theme.colors.gray70};
-      `
-      : undefined};
-`;
 
 export const MainPage: React.FC = () => {
   const [position, setPosition] = useRecoilState<number>(positionState);
@@ -148,10 +47,10 @@ export const MainPage: React.FC = () => {
   }, []);
 
   return (
-    <Container>
-      <TopButton onClick={() => window.scrollTo(0, 0)}>
+    <S.Container>
+      <S.TopButton onClick={() => window.scrollTo(0, 0)}>
         <img src={arrowUp} alt="arrowUp" />
-      </TopButton>
+      </S.TopButton>
       <Column>
         <Typography size={70} bold color="blue50">
           <Span size={70} bold color="white">
@@ -162,13 +61,13 @@ export const MainPage: React.FC = () => {
         <Row>
           {languages.map((lang) => (
             <React.Fragment key={lang}>
-              <LanguageBtn
+              <S.LanguageBtn
                 type="button"
                 onClick={() => handleChangeLanguage(lang)}
                 point={lang === currentLanguage}
               >
                 {t(`language_${lang}`)}
-              </LanguageBtn>
+              </S.LanguageBtn>
               <Margin row size={8} />
             </React.Fragment>
           ))}
@@ -200,14 +99,14 @@ export const MainPage: React.FC = () => {
       </Typography>
       <Margin size={25} />
       <Row>
-        <LogIcon
+        <S.LogIcon
           src={github}
           alt="github"
           size={48}
           onClick={() => window.open('https://github.com/WISUNGWON')}
         />
         <Margin row size={20} />
-        <LogIcon
+        <S.LogIcon
           src={home}
           alt="home"
           size={48}
@@ -216,7 +115,7 @@ export const MainPage: React.FC = () => {
       </Row>
       <Margin size={420} />
       {/* 하나의 섹션 */}
-      <Divider />
+      <S.Divider />
       <Margin size={50} />
       <Typography size={50} bold color="white">
         <span role="img" aria-label="img">
@@ -224,66 +123,49 @@ export const MainPage: React.FC = () => {
         </span>{' '}
         EXPERIENCE
       </Typography>
-      {/* 북커버리 */}
+      {/* 30COS */}
       <Margin size={70} />
       <Row justify="space-between" align="center">
-        <Typography size={30} bold color="white">
-          북커버리
-        </Typography>
+        <Row align="center">
+          <Typography size={30} bold color="white">
+            30COS
+          </Typography>
+          <S.LogoIcon
+            src={Logo30cos}
+            alt="30cosLOGO"
+            onClick={() => window.open('https://30cos.com/')}
+          />
+        </Row>
         <Typography size={20} bold color="blue50">
-          2021.03 ~ present
+          2021.07 ~ present
         </Typography>
         <Margin row size={100} />
       </Row>
       <Typography size={20} regular color="blue30">
-        웹 서비스 프론트엔드 개발 (React ,Typescript)
+        웹 서비스, 어드민 프론트엔드 개발 (React ,Typescript)
       </Typography>
       <Margin size={30} />
       <Typography size={16} medium color="white">
-        도서 기반 SNS 서비스 스타트업 BookCovery의 프론트엔드팀에서 개발업무를
-        수행하고 있습니다.
+        화장품 인증 자동화 솔루션 30COS 웹, 어드민 프론트엔드 개발 및 유지보수
         <br />
       </Typography>
-      <Margin size={15} />
-      <BookIcon
-        src={bookcoveryLogo}
-        alt="bookcoveryLogo"
-        onClick={() => window.open('https://bookcovery.com/')}
-      />
       <Margin size={15} />
       <Typography size={16} regular color="blue30">
         주요 업무 내용
       </Typography>
       <Typography size={16} regular color="white">
         - ReactJS, Typescript 웹 어플리케이션 제작 <br />
-        - 도움됐어요, 읽고싶어요, 해시태그 기능 구현 <br />
-        - 기술스택: ReactJS, Typescript, Storybook, SWR, Recoil,
+        - 원료사 버전 런칭, 제조사 / 브랜드사 버전 고도화 <br />
+        - 기술스택: ReactJS, Typescript, ant-design, react-query, redux,
         Styled-component, Git-flow
         <br />
       </Typography>
       <Margin size={30} />
-      <Typography size={16} regular color="blue50">
+      {/* <Typography size={16} regular color="blue50">
         * 이미지를 클릭하시면, 크게 보실 수 있습니다.
       </Typography>
-      <Margin size={30} />
+      <Margin size={30} /> */}
       {/* Todo: 클릭하면 모달 창나오고 크게 보기, 이미지가 여러개면 1/2 이런식으로 나올 수 있게 그리고 오른쪽 버튼 있게하기 */}
-      <Photos>
-        <Photo width={360} height={200} src={bookcovery} alt="bookcovery" />
-        <Margin row size={30} />
-        <Photo
-          width={360}
-          height={200}
-          src={bookcoveryKeyword}
-          alt="bookcovery"
-        />
-        <Margin row size={30} />
-        <Photo
-          width={360}
-          height={200}
-          src={bookcoveryKeywordModal}
-          alt="bookcoveryKeywordModal"
-        />
-      </Photos>
       {/* SSAFY */}
       <Margin size={100} />
       <Row justify="space-between" align="center">
@@ -371,7 +253,7 @@ export const MainPage: React.FC = () => {
       {/* End of EXPERIENCE 섹션 */}
       <Margin size={100} />
       {/* PROJECT */}
-      <Divider />
+      <S.Divider />
       {/* HappyHouse */}
       <Margin size={50} />
       <Typography size={50} bold color="white">
@@ -382,66 +264,66 @@ export const MainPage: React.FC = () => {
       </Typography>
       <Margin size={60} />
       <Row justify="space-between" align="center">
-        <Typography size={30} bold color="white">
-          HappyHouse
-        </Typography>
+        <Row align="center">
+          <Typography size={30} bold color="white">
+            북커버리
+          </Typography>
+          <S.LogoIcon
+            src={bookcoveryLogo}
+            alt="bookcoveryLogo"
+            onClick={() => window.open('https://bookcovery.com/')}
+          />
+        </Row>
         <Typography size={20} bold color="blue50">
-          2020.11.17 ~ 2020.11.26
+          2020.12 ~ present
         </Typography>
         <Margin row size={100} />
       </Row>
       <Typography size={20} regular color="blue30">
-        공공데이터를 사용하여 부동산 매물 정보를 검색할 수 있는 웹사이트
+        웹 서비스 프론트엔드 개발 (React ,Typescript)
       </Typography>
       <Margin size={30} />
       <Typography size={16} medium color="white">
-        삼성 청년 소프트웨어 아카데미 1학기 관통 프로젝트로 제작한 웹 사이트
-        입니다. <br />
-        프로젝트를 통해 Spring개념을 복습하고 DB에 대한 지식을 넓힐 수
-        있었습니다.
+        도서 기반 SNS BookCovery의 데스크톱 웹 개발, 런칭 및 유지보수
+        <br />
+      </Typography>
+      <Margin size={15} />
+      <Typography size={16} regular color="blue30">
+        주요 업무 내용
+      </Typography>
+      <Typography size={16} regular color="white">
+        - ReactJS, Typescript 웹 어플리케이션 제작 <br />
+        - 도움됐어요, 읽고싶어요, 해시태그 기능 구현 <br />
+        - 기술스택: ReactJS, Typescript, Storybook, SWR, Recoil,
+        Styled-component, Git-flow
         <br />
       </Typography>
       <Margin size={30} />
-      <Typography size={16} regular color="blue30">
-        프로젝트 역할
-      </Typography>
-      <Typography size={16} regular color="white">
-        - Java, Spring을 이용한 백엔드 개발
-        <br />
-        - 게시판, 페이징, 검색, 크롤링, 차트, 좋아요 기능 구현
-        <br />
-      </Typography>
-      <Margin size={20} />
       <Typography size={16} regular color="blue50">
         * 이미지를 클릭하시면, 크게 보실 수 있습니다.
       </Typography>
       <Margin size={30} />
-      <Photos>
+      <S.Photos>
+        <Photo width={360} height={200} src={bookcovery} alt="bookcovery" />
+        <Margin row size={30} />
         <Photo
           width={360}
           height={200}
-          src={happyhouseMain}
-          alt="happyhouseMain"
+          src={bookcoveryKeyword}
+          alt="bookcovery"
         />
         <Margin row size={30} />
         <Photo
           width={360}
           height={200}
-          src={happyhouseLike}
-          alt="happyhouseLike"
+          src={bookcoveryKeywordModal}
+          alt="bookcoveryKeywordModal"
         />
-        <Margin row size={30} />
-        <Photo
-          width={360}
-          height={200}
-          src={happyhouseMap}
-          alt="happyhouseMap"
-        />
-      </Photos>
+      </S.Photos>
       {/* End of PROJECT 섹션 */}
       <Margin size={100} />
       {/* 하나의 섹션 */}
-      <Divider />
+      <S.Divider />
       <Margin size={50} />
       <Typography size={50} bold color="white">
         <span role="img" aria-label="img">
@@ -469,7 +351,7 @@ export const MainPage: React.FC = () => {
         React, Typescript
       </Typography>
       <Typography size={20} bold color="white">
-        SWR, Redux, Recoil
+        React-query, Redux,
       </Typography>
       <Typography size={20} bold color="white">
         Styled-Component, Storybook
@@ -508,6 +390,6 @@ export const MainPage: React.FC = () => {
       <Margin size={30} />
       {/* Todo: 이미지 넣기, 이미지 호버하면 애미네미션과 함께 커지기, 클릭하면 창나오고 크게 보기 */}
       {/* End of 섹션 */}
-    </Container>
+    </S.Container>
   );
 };
